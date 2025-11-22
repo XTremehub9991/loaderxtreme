@@ -1,5 +1,5 @@
--- UNIVERSAL ZOMBIES & BLADE LOADER (English)
--- Auto detects the game and runs the correct script
+-- 🧟 UNIVERSAL ZOMBIES & BLADE & SNIPE LOADER (English)
+-- Auto detects the game and runs the correct script!
 
 local PlaceId = game.PlaceId
 local StarterGui = game:GetService("StarterGui")
@@ -20,33 +20,39 @@ local Scripts = {
     [79940517734440] = { -- Slashe Blade Loot
         name = "Slashe Blade Loot",
         url = "https://api.junkie-development.de/api/v1/luascripts/public/0b4195d497066eb5e0acaf8c99d40e8dde2b45f4411ff7a14d0d19b92bdf1821/download"
+    },
+    [76668493349114] = { -- Snipe Or Die ✅ NEW!
+        name = "Snipe Or Die",
+        url = "https://api.junkie-development.de/api/v1/luascripts/public/13f10adce9ae9ebe630c35a32e8867aded4e401b7a457fd46f03edf944cfd2f7/download"
     }
 }
 
-local script = Scripts[PlaceId]
+local scriptData = Scripts[PlaceId]
 
-if script then
+if scriptData then
     local success, err = pcall(function()
-        loadstring(game:HttpGet(script.url))()
+        loadstring(game:HttpGet(scriptData.url))()
     end)
-
+    
     if success then
         StarterGui:SetCore("SendNotification", {
-            Title = "SUCCESS",
-            Text = script.name .. " loaded!",
+            Title = "✅ SUCCESS!",
+            Text = scriptData.name .. " loaded! 🎉",
             Duration = 5
         })
+        print("Loaded: " .. scriptData.name)
     else
         StarterGui:SetCore("SendNotification", {
-            Title = "ERROR",
-            Text = "Failed to load " .. script.name,
+            Title = "❌ ERROR!",
+            Text = "Failed to load " .. scriptData.name .. "\n" .. tostring(err),
             Duration = 7
         })
+        warn("Error: " .. tostring(err))
     end
 else
     StarterGui:SetCore("SendNotification", {
-        Title = "NOT SUPPORTED",
-        Text = "This game is not supported yet in the loader\nPlaceId: " .. PlaceId,
-        Duration = 6
+        Title = "❌ NOT SUPPORTED",
+        Text = "PlaceId: " .. PlaceId .. "\nSupported games:\n• Hunty Zombies\n• Entrenched WW1\n• Blade X Zombies\n• Slashe Blade Loot\n• Snipe Or Die",
+        Duration = 8
     })
 end
