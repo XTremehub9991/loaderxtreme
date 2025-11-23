@@ -1,4 +1,4 @@
--- 🧟 UNIVERSAL ZOMBIES & BLADE & SNIPE LOADER (English)
+-- 🧟 UNIVERSAL LOADER: Zombies | Blade | Snipe | Arsenal (English)
 -- Auto detects the game and runs the correct script!
 
 local PlaceId = game.PlaceId
@@ -21,9 +21,13 @@ local Scripts = {
         name = "Slashe Blade Loot",
         url = "https://api.junkie-development.de/api/v1/luascripts/public/0b4195d497066eb5e0acaf8c99d40e8dde2b45f4411ff7a14d0d19b92bdf1821/download"
     },
-    [76668493349114] = { -- Snipe Or Die ✅ NEW!
+    [76668493349114] = { -- Snipe Or Die
         name = "Snipe Or Die",
         url = "https://api.junkie-development.de/api/v1/luascripts/public/13f10adce9ae9ebe630c35a32e8867aded4e401b7a457fd46f03edf944cfd2f7/download"
+    },
+    [286090429] = { -- Arsenal ✅ NEW!
+        name = "Arsenal",
+        url = "https://api.junkie-development.de/api/v1/luascripts/public/1fe058d8a4cabf5b6f7147c108fbe19197da440ca7a79fcad8a750a73ba29b2d/download"
     }
 }
 
@@ -52,7 +56,7 @@ if scriptData then
 else
     StarterGui:SetCore("SendNotification", {
         Title = "❌ NOT SUPPORTED",
-        Text = "PlaceId: " .. PlaceId .. "\nSupported games:\n• Hunty Zombies\n• Entrenched WW1\n• Blade X Zombies\n• Slashe Blade Loot\n• Snipe Or Die",
+        Text = "PlaceId: " .. PlaceId .. "\nSupported:\n• Hunty Zombies\n• Entrenched WW1\n• Blade X Zombies\n• Slashe Blade Loot\n• Snipe Or Die\n• Arsenal",
         Duration = 8
     })
 end
